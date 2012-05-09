@@ -5,8 +5,8 @@ define('CONFIG_PATH', rtrim(APP_PATH) . '/config');
 define('LIBRARY_PATH', rtrim(APP_PATH) . '/library');
 define('WEBROOT_PATH', rtrim(APP_PATH) . '/webroot');
 define('FILEUPLOAD_PATH', rtrim(APP_PATH) . '/webroot/files');
-define('WEBROOT_URL', 'http://ctd.local');
-define('FILEUPLOAD_URL', 'http://ctd.local/files');
+define('WEBROOT_URL', 'http://demo.ctm.local:4567');
+define('FILEUPLOAD_URL', WEBROOT_URL . '/files');
 
 // include config
 require_once(CONFIG_PATH.'/app.php');
