@@ -23,9 +23,10 @@
 		<div><lable>Email</lable><input type="text" name="email" /></div>
 		<div><lable>Phone number</lable><input type="text" name="phone" /></div>
 
-		<h3>Create your sections</h3>
+		<h3>Introduction</h3>
+        <div><lable>Background and rationale</lable><textarea name="background"></textarea></div>
 
-		<div><input type="submit" value="Download Template" /></div>
+        <div><input type="submit" value="Download Template" /></div>
     </form>
 
     <!-- javascript -->
@@ -50,15 +51,14 @@
 						data: serializedData
 					}).done(function(data) {
 						if (data.success) {
-							setTimeout("window.open('"+data.filepath+"', 'Download')",1000);
+							setTimeout("window.location = '"+data.filepath+"'" ,1000);
 						} else {
-							alert("Error - ");
+							alert("Error - "+data.message);
 
 						}
 					}).fail(function() {
-						alert("error");
+						alert("Error");
 					}).always(function() {
-						alert("complete");
 						$inputs.removeAttr("disabled");
 					});
 
