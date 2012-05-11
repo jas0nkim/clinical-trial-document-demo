@@ -9,7 +9,7 @@
     <form id="login-form">
 		<h1>Welcome to Template Generator</h1>
 
-		<h3>Please enter your personal information</h3>
+		<h3>Author information</h3>
 		<div><lable>Title</lable>
 			<select name="title">
 				<option value="Dr.">Dr.</option>
@@ -23,10 +23,17 @@
 		<div><lable>Email</lable><input type="text" name="email" /></div>
 		<div><lable>Phone number</lable><input type="text" name="phone" /></div>
 
-		<h3>Introduction</h3>
-        <div><lable>Background and rationale</lable><textarea name="background"></textarea></div>
+		<h3>Administrative Information</h3>
+		<div><lable>Title</lable><textarea name="background"></textarea></div>
+		<div><lable>Trial registration</lable><textarea name="background"></textarea></div>
+		<div><lable>Protocol version</lable><textarea name="background"></textarea></div>
+		<div><lable>Funding</lable><textarea name="background"></textarea></div>
+		<div><lable>Roles and responsibilities</lable><textarea name="background"></textarea></div>
 
-        <div><input type="submit" value="Download Template" /></div>
+		<h3>Introduction</h3>
+		<div><lable>Background and rationale</lable><textarea name="background"></textarea></div>
+
+		<div><input type="submit" value="Download Template" /></div>
     </form>
 
     <!-- javascript -->
