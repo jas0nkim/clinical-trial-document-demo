@@ -1,6 +1,6 @@
 <?php
 // hostname
-$config['host']['domain'] = "http://ctd.local";
+$config['host']['domain'] = "http://demo.ctd.local:4567";
 
 // database
 $config['database']['dsn'] = "mysql:dbname=ctd_demo;host=127.0.0.1";
