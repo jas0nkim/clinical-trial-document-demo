@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link rel="stylesheet" type="text/css" href="css/pepper-grinder/jquery-ui-1.8.20.custom.css" />
 <style>
-    body { margin: 20px 20px 20px 20px; }
+    body { margin: 20px 20px 20px 20px; font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif; }
     div#body { width: 100%; }
     div.spacer { height: 10px; }
     table { text-align: left; width: 100%; }
@@ -110,6 +110,7 @@
             </tbody>
         </table>
 
+        <div class="spacer">&nbsp;</div>
         <h4>Introduction</h4>
         <table>
             <tbody>
@@ -125,7 +126,6 @@
         </table>
 
         <hr class="thin"></hr>
-        <div class="spacer">&nbsp;</div>
 
         <h3>Sort</h3>
         <div>
