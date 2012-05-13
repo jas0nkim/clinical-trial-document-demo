@@ -1209,10 +1209,15 @@ class CreateDocx
         $this->_zipDocx->close();
 
         $arrpathFile = pathinfo($fileName);
-        copy(
-            $this->_tempFile,
-            $fileName . '.' . $this->_extension
-        );
+
+        // modification - if file exist, delete the file first - work around for overwriting disabled with copy function
+        if (file_exists($fileName . '.' . $this->_extension)) {
+            unlink($fileName . '.' . $this->_extension);
+        }
+
+        if (!copy($this->_tempFile, $fileName . '.' . $this->_extension)) {
+            throw new Exception("Document has not been created.");
+        }
     }
 
     /**
