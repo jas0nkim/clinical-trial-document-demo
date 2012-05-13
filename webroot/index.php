@@ -143,7 +143,7 @@
         <hr class="thin"></hr>
         <div class="spacer">&nbsp;</div>
 
-        <div><input type="submit" value="Generate Document" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-all" /></div>
+        <div><input type="submit" value="Generate Document" class="jqui_button" /></div>
     </form>
 </div>
 
@@ -154,6 +154,9 @@
 <script type="text/javascript">
     $(function() {
         //$("form").form();
+
+        // jquery button
+        $('a.jqui_button, input:submit.jqui_button').button();
 
         // jquery ui sortable
         $("#sortable").sortable({
@@ -176,7 +179,7 @@
                     data: serializedData
                 }).done(function(data) {
                     if (data.success) {
-                        setTimeout("window.location = '"+data.filepath+"'" ,1000);
+                        setTimeout("window.location = '"+data.filepath+"'", 500);
                     } else {
                         alert("Error - "+data.message);
 
