@@ -22,6 +22,20 @@ try {
     $docx->addHeader($header_text, $params_header);
 
 	// body
+	// 1. table of content
+	$body_text = "Table of Content";
+	$params_body = array(
+		'b' => 'single'
+	);
+	$docx->addText($body_text, $params_body);
+
+	$body_text = 'Table of content here';
+	$docx->addText($body_text);
+
+	// page break
+	$docx->addBreak('page');
+
+	// 2. content
 	foreach($_GET['order'] as $key) {
 		switch ($key) {
 			case 0: // title
