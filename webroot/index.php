@@ -130,13 +130,22 @@
         <h3>Sort</h3>
         <div>
             <ul id="sortable">
-                <li class="ui-state-default">Title</li>
-                <li class="ui-state-default">Trial registration</li>
-                <li class="ui-state-default">Protocol version</li>
-                <li class="ui-state-default">Funding</li>
-                <li class="ui-state-default">Roles and responsibilities</li>
-                <li class="ui-state-default">Background and rationale</li>
-            </ul>
+				<!--
+                <li class="ui-state-default" id="sort_title">Title</li>
+                <li class="ui-state-default" id="sort_registration">Trial registration</li>
+                <li class="ui-state-default" id="sort_protocol_version">Protocol version</li>
+                <li class="ui-state-default" id="sort_funding">Funding</li>
+                <li class="ui-state-default" id="sort_roles_and_resp">Roles and responsibilities</li>
+                <li class="ui-state-default" id="sort_bg_and_rationale">Background and rationale</li>
+                -->
+				<li class="ui-state-default" id="order_0">Title</li>
+				<li class="ui-state-default" id="order_1">Trial registration</li>
+				<li class="ui-state-default" id="order_2">Protocol version</li>
+				<li class="ui-state-default" id="order_3">Funding</li>
+				<li class="ui-state-default" id="order_4">Roles and responsibilities</li>
+				<li class="ui-state-default" id="order_5">Background and rationale</li>
+			</ul>
+			<input type="hidden" name="order" id="order" value="" />
         </div>
 
         <div class="spacer">&nbsp;</div>
@@ -155,12 +164,20 @@
     $(function() {
         //$("form").form();
 
-        // jquery button
-        $('a.jqui_button, input:submit.jqui_button').button();
+		var serialized_order = "";
+		// jquery button
+        $("a.jqui_button, input:submit.jqui_button").button();
 
         // jquery ui sortable
+		//var sort_result = $("#sortable").sortable("serialize");
         $("#sortable").sortable({
-            placeholder: "ui-state-highlight"
+            placeholder: "ui-state-highlight",
+			create: function(event, ui) {
+				serialized_order = $("#sortable").sortable("serialize");
+			},
+			update: function(event, ui) {
+				serialized_order = $("#sortable").sortable("serialize");
+			}
         });
         $("#sortable").disableSelection();
 
@@ -174,7 +191,7 @@
             $inputs.attr("disabled", "disabled");
 
             var jqxhr = $.ajax({
-                    url: "api/docx/generate.php",
+                    url: "api/docx/generate.php?" + serialized_order,
                     type: "POST",
                     data: serializedData
                 }).done(function(data) {
