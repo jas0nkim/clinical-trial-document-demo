@@ -23,14 +23,12 @@ try {
 
 	// body
 	// 1. table of content
-	$body_text = "Table of Content";
+	$body_text = "Table of Contents";
 	$params_body = array(
 		'b' => 'single'
 	);
 	$docx->addText($body_text, $params_body);
-
-	$body_text = 'Table of content here';
-	$docx->addText($body_text);
+	$docx->addTableContents('Arial');
 
 	// page break
 	$docx->addBreak('page');
@@ -39,18 +37,30 @@ try {
 	foreach($_GET['order'] as $key) {
 		switch ($key) {
 			case 0: // title
-				$body_text = "Title";
-				$params_body = array(
-					'b' => 'single'
+				$title_text = "Title";
+				$params_title = array(
+					'val' => 1,
+					'u' => 'single',
+					'font' => 'Blackadder ITC',
+					'sz' => 18
 				);
-				$docx->addText($body_text, $params_body);
+				$docx->addTitle($title_text, $params_title);
 
 				$body_text = $_POST['title'];
 				$docx->addText($body_text);
 				break;
 
 			case 1: // registration
-				$body_text = "Trial registration a)";
+				$title_text = "Trial registration";
+				$params_title = array(
+					'val' => 1,
+					'u' => 'single',
+					'font' => 'Blackadder ITC',
+					'sz' => 18
+				);
+				$docx->addTitle($title_text, $params_title);
+
+				$body_text = "Section a)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -59,7 +69,7 @@ try {
 				$body_text = $_POST['registration_a'];
 				$docx->addText($body_text);
 
-				$body_text = "Trial registration b)";
+				$body_text = "Section b)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -68,7 +78,7 @@ try {
 				$body_text = $_POST['registration_b'];
 				$docx->addText($body_text);
 
-				$body_text = "Trial registration c)";
+				$body_text = "Section c)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -79,29 +89,44 @@ try {
 				break;
 
 			case 2: // protocol_version
-				$body_text = "Protocol version";
-				$params_body = array(
-					'b' => 'single'
+				$title_text = "Protocol version";
+				$params_title = array(
+					'val' => 1,
+					'u' => 'single',
+					'font' => 'Blackadder ITC',
+					'sz' => 18
 				);
-				$docx->addText($body_text, $params_body);
+				$docx->addTitle($title_text, $params_title);
 
 				$body_text = $_POST['protocol_version'];
 				$docx->addText($body_text);
 				break;
 
 			case 3: // funding
-				$body_text = "Funding";
-				$params_body = array(
-					'b' => 'single'
+				$title_text = "Funding";
+				$params_title = array(
+					'val' => 1,
+					'u' => 'single',
+					'font' => 'Blackadder ITC',
+					'sz' => 18
 				);
-				$docx->addText($body_text, $params_body);
+				$docx->addTitle($title_text, $params_title);
 
 				$body_text = $_POST['funding'];
 				$docx->addText($body_text);
 				break;
 
 			case 4: // roles_and_resp
-				$body_text = "Roles and responsibilities a)";
+				$title_text = "Roles and responsibilities";
+				$params_title = array(
+					'val' => 1,
+					'u' => 'single',
+					'font' => 'Blackadder ITC',
+					'sz' => 18
+				);
+				$docx->addTitle($title_text, $params_title);
+
+				$body_text = "Section a)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -110,7 +135,7 @@ try {
 				$body_text = $_POST['roles_and_resp_a'];
 				$docx->addText($body_text);
 
-				$body_text = "Roles and responsibilities b)";
+				$body_text = "Section b)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -119,7 +144,7 @@ try {
 				$body_text = $_POST['roles_and_resp_b'];
 				$docx->addText($body_text);
 
-				$body_text = "Roles and responsibilities c)";
+				$body_text = "Section c)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -128,7 +153,7 @@ try {
 				$body_text = $_POST['roles_and_resp_c'];
 				$docx->addText($body_text);
 
-				$body_text = "Roles and responsibilities d)";
+				$body_text = "Section d)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -139,7 +164,16 @@ try {
 				break;
 
 			case 5: // bg_and_rationale
-				$body_text = "Background and rationale a)";
+				$title_text = "Background and rationale";
+				$params_title = array(
+					'val' => 1,
+					'u' => 'single',
+					'font' => 'Blackadder ITC',
+					'sz' => 18
+				);
+				$docx->addTitle($title_text, $params_title);
+
+				$body_text = "Section a)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -148,7 +182,7 @@ try {
 				$body_text = $_POST['bg_and_rationale_a'];
 				$docx->addText($body_text);
 
-				$body_text = "Background and rationale b)";
+				$body_text = "Section b)";
 				$params_body = array(
 					'b' => 'single'
 				);
