@@ -1,4 +1,4 @@
 *~
 .idea
 config/app.php
-webroot/files/*
+webroot/files
