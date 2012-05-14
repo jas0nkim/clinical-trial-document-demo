@@ -169,7 +169,6 @@
         $("a.jqui_button, input:submit.jqui_button").button();
 
         // jquery ui sortable
-		//var sort_result = $("#sortable").sortable("serialize");
         $("#sortable").sortable({
             placeholder: "ui-state-highlight",
 			create: function(event, ui) {
