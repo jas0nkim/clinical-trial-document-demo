@@ -5,20 +5,19 @@ AutoLoader::load();
 $success = TRUE;
 try {
 	$docx = new CreateDocx();
+    $docx->setDefaultFont('Times New Roman');
 
     // header
 	$params_header = array(
 		'jc' => 'right',
 		'textWrap' => 5,
+        'lineSpacing' => 120,
 	);
 
-	$header_text = "{$_POST['profile_title']} {$_POST['firstname']} {$_POST['lastname']}";
-	$docx->addHeader($header_text, $params_header);
-
-    $header_text = $_POST['address'];
-    $docx->addHeader($header_text, $params_header);
-
-    $header_text = "Email: {$_POST['email']} Phone number:{$_POST['phone']}";
+	$header_text = "<w:br/>" . "{$_POST['profile_title']} {$_POST['firstname']} {$_POST['lastname']}";
+    $header_text .= "<w:br/>" . $_POST['address'];
+    $header_text .= "<w:br/>" . "Email: {$_POST['email']}";
+    $header_text .= "<w:br/>" . "Phone:{$_POST['phone']}";
     $docx->addHeader($header_text, $params_header);
 
 	// body
@@ -28,7 +27,7 @@ try {
 		'b' => 'single'
 	);
 	$docx->addText($body_text, $params_body);
-	$docx->addTableContents('Arial');
+	$docx->addTableContents('Blackadder ITC');
 
 	// page break
 	$docx->addBreak('page');
@@ -45,10 +44,12 @@ try {
 					'sz' => 18
 				);
 				$docx->addTitle($title_text, $params_title);
+                $docx->addBreak('line');
 
-				$body_text = $_POST['title'];
+                $body_text = $_POST['title'];
 				$docx->addText($body_text);
-				break;
+                $docx->addBreak('line');
+                break;
 
 			case 1: // registration
 				$title_text = "Trial registration";
@@ -59,8 +60,9 @@ try {
 					'sz' => 18
 				);
 				$docx->addTitle($title_text, $params_title);
+                $docx->addBreak('line');
 
-				$body_text = "Section a)";
+                $body_text = "Section a)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -68,8 +70,9 @@ try {
 
 				$body_text = $_POST['registration_a'];
 				$docx->addText($body_text);
+                $docx->addBreak('line');
 
-				$body_text = "Section b)";
+                $body_text = "Section b)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -77,16 +80,8 @@ try {
 
 				$body_text = $_POST['registration_b'];
 				$docx->addText($body_text);
-
-				$body_text = "Section c)";
-				$params_body = array(
-					'b' => 'single'
-				);
-				$docx->addText($body_text, $params_body);
-
-				$body_text = $_POST['registration_c'];
-				$docx->addText($body_text);
-				break;
+                $docx->addBreak('line');
+                break;
 
 			case 2: // protocol_version
 				$title_text = "Protocol version";
@@ -97,10 +92,12 @@ try {
 					'sz' => 18
 				);
 				$docx->addTitle($title_text, $params_title);
+                $docx->addBreak('line');
 
-				$body_text = $_POST['protocol_version'];
+                $body_text = $_POST['protocol_version'];
 				$docx->addText($body_text);
-				break;
+                $docx->addBreak('line');
+                break;
 
 			case 3: // funding
 				$title_text = "Funding";
@@ -111,10 +108,12 @@ try {
 					'sz' => 18
 				);
 				$docx->addTitle($title_text, $params_title);
+                $docx->addBreak('line');
 
-				$body_text = $_POST['funding'];
+                $body_text = $_POST['funding'];
 				$docx->addText($body_text);
-				break;
+                $docx->addBreak('line');
+                break;
 
 			case 4: // roles_and_resp
 				$title_text = "Roles and responsibilities";
@@ -125,8 +124,9 @@ try {
 					'sz' => 18
 				);
 				$docx->addTitle($title_text, $params_title);
+                $docx->addBreak('line');
 
-				$body_text = "Section a)";
+                $body_text = "Section a)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -161,7 +161,8 @@ try {
 
 				$body_text = $_POST['roles_and_resp_d'];
 				$docx->addText($body_text);
-				break;
+                $docx->addBreak('line');
+                break;
 
 			case 5: // bg_and_rationale
 				$title_text = "Background and rationale";
@@ -172,8 +173,9 @@ try {
 					'sz' => 18
 				);
 				$docx->addTitle($title_text, $params_title);
+                $docx->addBreak('line');
 
-				$body_text = "Section a)";
+                $body_text = "Section a)";
 				$params_body = array(
 					'b' => 'single'
 				);
@@ -190,7 +192,8 @@ try {
 
 				$body_text = $_POST['bg_and_rationale_b'];
 				$docx->addText($body_text);
-				break;
+                $docx->addBreak('line');
+                break;
 
 			default:
 				break;
